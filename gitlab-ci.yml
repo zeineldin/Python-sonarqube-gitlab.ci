@@ -1,0 +1,7 @@
+sonar-scanner:
+  image: docker:git
+  services:
+  - docker:dind
+  stage: sonar-scanner
+  script:  
+    - docker build --network host -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME .
